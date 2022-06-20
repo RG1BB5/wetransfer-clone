@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Django files
+*.sqlite3
+
+# Docker files
+/data

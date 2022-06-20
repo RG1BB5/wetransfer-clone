@@ -1,0 +1,5 @@
+Django==4.0.5
+djangorestframework==3.13.1
+psycopg2-binary==2.9.3
+coverage==6.4.1
+selenium==4.2.0
