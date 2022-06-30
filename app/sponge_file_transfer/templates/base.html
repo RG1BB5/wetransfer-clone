@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link type="text/css" charset="utf-8" rel="stylesheet" href="{% static 'bootstrap/scss/bootstrap.css' %}">
+                
+
+        <title>Home | WeTransferClone</title>
+    </head>
+    <body>
+        {% include 'includes/messages.html' %}
+        
+        <div class="px-4 py-5 my-5 text-center">
+            {% comment %} <img class="d-block mx-auto mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> {% endcomment %}
+            <h1 class="display-5 fw-bold">WeTransfer Clone</h1>
+            <div class="col-lg-6 mx-auto">
+              <p class="lead mb-4">Make sharing files easy.</p>
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                {% block content %}{% endblock content %}
+              </div>
+            </div>
+        </div>
+
+        {% block javascript %}{% endblock %}
+    </body>
+</html>

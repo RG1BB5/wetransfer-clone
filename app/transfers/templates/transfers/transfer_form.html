@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form enctype="multipart/form-data" action="" method="POST">
+    {% csrf_token %}
+    {# Include the hidden fields #}
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+    {# Include the visible fields #}
+    {% for field in form.visible_fields %}
+        <div class="form-group">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+            <p class="help">{{ field.help_text }}</p>
+        </div>
+    {% endfor %}
+
+    <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Share Files</button>
+</form>
+{% endblock content %}

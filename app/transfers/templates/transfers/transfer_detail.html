@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if object.requires_password %}
+        <form enctype="multipart/form-data" action="" method="POST">
+            {% csrf_token %}
+            {# Include the hidden fields #}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+            {# Include the visible fields #}
+            {% for field in form.visible_fields %}
+                <div class="form-group">
+                    {{ field.errors }}
+                    {{ field.label_tag }} {{ field }}
+                    <p class="help">{{ field.help_text }}</p>
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Share Files</button>
+        </form>
+    {% else %}
+        <div class="container">
+            <h2>Download started</h2>
+            <p>The file(s) from {{ object.email }} have started downloading.</p>
+        </div>
+    {% endif %}
+{% endblock content %}

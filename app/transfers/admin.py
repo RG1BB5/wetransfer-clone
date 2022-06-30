@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Transfer
+
+
+class TransferAdmin(admin.ModelAdmin):
+    model = Transfer
+
+admin.site.register(Transfer, TransferAdmin)
